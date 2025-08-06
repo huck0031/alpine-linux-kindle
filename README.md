@@ -5,7 +5,7 @@ Binary releases (testing) for Alpine Linux armhf/armv7 including versions v3.20,
 1. Have jailbroken kindle, with KAUH and Kterm installed (be aware if your kindle uses hard floats that you will need different versions)
 2. Download alpine_kindle_kaul from schuhumi/alpine_kindle_kual and place in the extensions folder on kindle
 3. Replace my customized deploy.sh script (replaces release location of Alpine.zip/ext3 to my repo)
-4. From KUAL open Alpine Linux and deploy the latest release, it will download from the releases included in this repo
+4. From KUAL open Alpine Linux and deploy the latest release, it will download from the latest stable included in this repo (currently Alpine v3.20)
 5. 
 
 # Suggestions
