@@ -6,7 +6,8 @@ Binary releases (testing) for Alpine Linux armhf/armv7 including versions v3.20,
 2. Download alpine_kindle_kaul from schuhumi/alpine_kindle_kual and place in the extensions folder on kindle
 3. Replace my customized deploy.sh script (replaces release location of Alpine.zip/ext3 to my repo)
 4. From KUAL open Alpine Linux and deploy the latest release, it will download from the latest stable included in this repo (currently Alpine v3.20)
-5. 
+5. Drop into the Alpine Linux shell from KUAL, run setup-desktop and install MATE DE (others not tested)
+6. Execute startgui.sh
 
 # Suggestions
 To disable the Kindle framework when running Alpine (frees more ram) run the following in Kterm:
