@@ -9,6 +9,8 @@ Binary releases (testing) for Alpine Linux armhf/armv7 including versions v3.20,
 5. Drop into the Alpine Linux shell from KUAL, run setup-desktop and install MATE DE (others not tested)
 6. Execute startgui.sh
 
+Afterwards, you are able to launch directly from KAUH
+
 # Suggestions
 To disable the Kindle framework when running Alpine (frees more ram) run the following in Kterm:
 ```
@@ -23,4 +25,6 @@ Thanks to the amazing work several years ago from schuhumi, you can run Alpine L
 using code from: https://github.com/schuhumi/alpine_kindle
 
 # TODO
-Include multiple options in KAUH menu for version testing, add additional auto installs for useful tools
+Include multiple (working) options in KAUH menu for version testing, add additional auto installs for useful tools
+Fix MATE installation, to save space during install + to skip the manual installation during step 5
+Add patch to enable keyboard on lock screen
