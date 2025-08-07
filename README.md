@@ -1,12 +1,12 @@
-# Alpine Linux on Kindle
-Binary releases (testing) for Alpine Linux armhf/armv7 including versions v3.20, v3.21 and more coming soon as I can test (currently testing for Kindle 11th Gen Paperwhite)
+# Alpine Linux on Kindle (WIP)
+Binary releases (testing) for Alpine Linux armhf/armv7 currently including version v3.20 and more coming soon as I can test (currently testing for Kindle 11th Gen Paperwhite)
 
 # Installation
 1. Have jailbroken kindle, with KAUH and Kterm installed (be aware if your kindle uses hard floats that you will need different versions)
 2. Download alpine_kindle_kaul from schuhumi/alpine_kindle_kual and place in the extensions folder on kindle
-3. Replace my customized deploy.sh script (replaces release location of Alpine.zip/ext3 to my repo)
-4. From KUAL open Alpine Linux and deploy the latest release, it will download from the latest stable included in this repo (currently Alpine v3.20)
-5. Drop into the Alpine Linux shell from KUAL, run setup-desktop and install MATE DE (others not tested)
+3. Replace my customized deploy.sh script in the aformentioned folder (replaces release location of Alpine.zip/ext3 to my repo)
+4. From KUAL open the Alpine Linux menu and deploy the latest release, currently it will download from the latest stable included in this repo (Alpine v3.20)
+5. After installation, drop into the Alpine Linux shell from KUAL, run the setup-desktop script and install MATE DE (others not tested)
 6. Execute startgui.sh
 
 Afterwards, you are able to launch directly from KAUH
@@ -22,7 +22,7 @@ mntroot r
 Thanks to the amazing work several years ago from schuhumi, you can run Alpine Linux on almost any Kindle, however the releases included have not been updated and can cause you to run into several issues (primarily seg faults, signature issues due to the drastic deviation from the typical kernel version a kindle and the one you are chrooting into) so I decided to make this repo for myself and anyone who might benefit from a newer Alpine release.
 
 # Credits
-using code from: https://github.com/schuhumi/alpine_kindle
+using code from: https://github.com/schuhumi/alpine_kindle & relies on https://github.com/schuhumi/alpine_kindle_kauh
 
 # TODO
 Include multiple (working) options in KAUH menu for version testing, add additional auto installs for useful tools
