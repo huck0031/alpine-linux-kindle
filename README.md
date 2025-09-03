@@ -35,6 +35,6 @@ using code from: [https://github.com/schuhumi/alpine_kindle](https://github.com/
 - Include multiple (working) options in KAUH menu for version testing
 - Auto set high-contrast theme, white background
 - Auto set terminal colors to be visible
-- Add additional auto installs including useful tools (plans to add fastfetch, htop, lynx, flameshot in next release)
+- Add additional auto installs including useful tools (plans to add flameshot in next release)
 - Add patch to enable keyboard on lock screen (currently requires you to manually disable screensaver/auto-lock in order to not have to restart after 5 min of idle time
-- Improve Chromium performance - web browsing is a much slower experience with my builds compared to the older builds provided by schuhumi, however I am currently prioritizing security updates over performance
+- ~~Improve Chromium performance - web browsing is a much slower experience with my builds compared to the older builds provided by schuhumi, however I am currently prioritizing security updates over performance~~
