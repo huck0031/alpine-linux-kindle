@@ -24,7 +24,7 @@ mntroot r
 - I wanted a Kindle Scribe type of device, but already having a Kindle Paperwhite Gen 5 (Kindle 11th Gen) and some basic knowledge that all Kindles used Linux under the hood from past jailbreaking, I went on to figure out what my best option would be to turn the device into a basic handwritten note keeper, with the ability to export my drawings. Finding the amazing work several years ago from schuhumi, I found I could run Alpine Linux on almost any Kindle, however the releases included had not been updated in years, and caused me to run into several issues when running simple commands like apk (seg faults, signature issues, and other unexplainable issues I experienced when chrooting into the environment with packages over half a decade old). I decided to create new builds myself and make this repo for anyone who might benefit from a newer Alpine release. With Xournal++ on my Paperwhite 5, I'm able to take notes that are decent enough for my needs, without the need for a brand new device.
 
 # Credits
-using code from: https://github.com/schuhumi/alpine_kindle & relies on https://github.com/schuhumi/alpine_kindle_kauh
+using code from: [https://github.com/schuhumi/alpine_kindle](https://github.com/schuhumi/alpine_kindle) & relies on [https://github.com/schuhumi/alpine_kindle_kauh](https://github.com/schuhumi/alpine_kindle_kual)
 
 # Troubleshooting
 - If you are unable to load into Alpine *except* through a shell, ensure your DE is installed (run setup-desktop and install MATE, then run Alpine again from KAUH). You can also run startgui.sh from the chroot shell
