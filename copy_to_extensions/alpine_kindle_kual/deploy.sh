@@ -69,4 +69,3 @@ exit
 else
 	deploy_alpine
 fi
-
