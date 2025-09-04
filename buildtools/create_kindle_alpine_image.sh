@@ -30,7 +30,7 @@ addgroup sudo
 addgroup alpine sudo
 su alpine -c \"cd ~
 git init
-git remote add origin https://github.com/schuhumi/alpine_kindle_dotfiles
+git remote add origin https://github.com/huck0031/alpine_kindle_dotfiles
 git pull origin master
 git reset --hard origin/master
 dconf load /org/mate/ < ~/.config/org_mate.dconf.dump
