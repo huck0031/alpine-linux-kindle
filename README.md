@@ -11,6 +11,14 @@ A project to bring modern Alpine Linux 32-bit to Kindle devices (running armhf/a
 
 Afterwards, you are able to launch Alpine directly from KAUH
 
+# Building
+To build your own Alpine release, you must have the following:
+- (Relatively) modern Linux kernel (alternatively, WSL also works)
+- qemu-user-static (qemu-armhf-static / qemu-armv7-static)
+
+1. Start by running create_kindle_alpine_image.sh to create your alpine.ext3 file. This is the filesystem your Kindle is chrooting into. (Note: Many build issues in this stage are a result of your required qemu environment!)
+2. After being dropped into the chroot shell, currently you must add any packages you may want (xournal++, fastfetch, lynx, etc) but notably you must run setup-desktop (MATE recommended) in order to have a working DE. Once you have everything you'd like installed to your filesystem, you can exit
+3. Run create_release.sh to bundle the filesystem along with alpine.conf and alpine.sh
 # Suggestions
 - To disable the Kindle framework when running Alpine (frees more ram) run the following in Kterm:
 ```
@@ -35,6 +43,4 @@ using code from: [https://github.com/schuhumi/alpine_kindle](https://github.com/
 - Include multiple (working) options in KAUH menu for version testing
 - Auto set high-contrast theme, white background
 - Auto set terminal colors to be visible
-- Add additional auto installs including useful tools (plans to add flameshot in next release)
 - Add patch to enable keyboard on lock screen (currently requires you to manually disable screensaver/auto-lock in order to not have to restart after 5 min of idle time
-- ~~Improve Chromium performance - web browsing is a much slower experience with my builds compared to the older builds provided by schuhumi, however I am currently prioritizing security updates over performance~~
