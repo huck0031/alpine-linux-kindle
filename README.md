@@ -1,38 +1,39 @@
 # Alpine Linux on Kindle
-A project to bring modern Alpine Linux 32-bit to Kindle devices (running armhf/armv7), currently including Alpine v3.22 (more coming soon)
+A project to bring modern Alpine Linux 32-bit to Kindle devices (running armhf/armv7), currently including Alpine v3.22
 
 # Screenshots (WIP)
 
 # Installation
 1. Have a jailbroken Kindle, with KAUL + Kterm installed (be aware if your Kindle uses hard floats that you will need Kterm for ARMHF or else Alpine's menu, as well as Kterm will not launch)
-2. Download alpine_kindle_kaul/ from schuhumi/alpine_kindle_kual and place in the extensions folder on Kindle
-3. Replace deploy.sh in this folder with the modified deploy.sh from this repo (replaces where Alpine.zip/ext3 is pulled from in schuhumi's script, points to my repo's releases)
-4. From KUAL, open the Alpine Linux menu and deploy the latest release, currently it will download from the latest stable included in this repo (Alpine v3.22, fastest and most stable from my testing compared to 3.20 and 3.21)
+2. Download copy_to_extensions/alpine_kindle_kual and place in the extensions folder on Kindle
+3. From KUAL, open the Alpine Linux menu and deploy the latest release, it will download from the latest stable included in this repo
 
 Afterwards, you are able to launch Alpine directly from KAUL
 
-# Building
-To build your own Alpine release, you must have the following:
-- (Relatively) modern Linux kernel (alternatively, WSL also works)
-- qemu-user-static (qemu-armhf-static / qemu-armv7-static)
-
-1. Start by running create_kindle_alpine_image.sh to create your alpine.ext3 file. This is the filesystem your Kindle is chrooting into. (Note: Many build issues in this stage are a result of your required qemu environment!)
-2. After being dropped into the chroot shell, currently you must add any packages you may want (xournal++, fastfetch, lynx, etc) but notably you must run setup-desktop (MATE recommended) in order to have a working DE. Once you have everything you'd like installed to your filesystem, you can exit
-3. Run create_release.sh to bundle the filesystem along with alpine.conf and alpine.sh
-# Suggestions
 - To disable the Kindle framework when running Alpine (frees more ram) run the following in Kterm:
 ```
 mntroot rw
 cp /mnt/us/alpine.conf /etc/upstart/
 mntroot r
 ```
-- Disable the Screensaver/lock until the onscreen keyboard is fixed on the lockscreen. Not doing this will result in being unable to unlock your Kindle after idle time (you can powercycle your Kindle when this happens)
+
+# Building
+To build your own Alpine release, you must have the following:
+- (Relatively) modern Linux kernel (alternatively, WSL also works)
+- qemu-user-static (qemu-armhf-static / qemu-armv7-static)
+
+1. Download buildtools/
+2. Start by running create_kindle_alpine_image.sh to create your alpine.ext3 file. This is the filesystem your Kindle is chrooting into. (Note: Many build issues in this stage are a result of your required qemu environment!)
+3. After being dropped into the chroot shell, currently you must add any packages you may want (xournal++, fastfetch, lynx, etc) but notably you must run setup-desktop (MATE recommended) in order to have a working DE. Once you have everything you'd like installed to your filesystem, you can exit
+4. Run create_release.sh to bundle the filesystem along with alpine.conf and alpine.sh
 
 # Why?
-- I wanted a Kindle Scribe type of device, but already having a Kindle Paperwhite Gen 5 (Kindle 11th Gen) and some basic knowledge that all Kindles used Linux under the hood from past jailbreaking, I went on to figure out what my best option would be to turn the device into a basic handwritten note keeper, with the ability to export my drawings. Finding the amazing work several years ago from schuhumi, I found I could run Alpine Linux on almost any Kindle, however the releases included had not been updated in years, and caused me to run into several issues when running simple commands like apk (seg faults, signature issues, and other unexplainable issues I experienced when chrooting into the environment with packages over half a decade old). I decided to create new builds myself and make this repo for anyone who might benefit from a newer Alpine release. With Xournal++ on my Paperwhite 5, I'm able to take notes that are decent enough for my needs, without the need for a brand new device.
+Initially, I wanted a Kindle Scribe type of device. Already having a Kindle Paperwhite Gen 5 (Kindle 11th Gen) and some basic knowledge that all Kindles used Linux under the hood from past jailbreaking, I went on to figure out what my best option would be to turn my existing device into a basic handwritten note keeper, with the ability to export my drawings. 
+
+Finding the amazing work several years ago from [schuhumi](https://github.com/schuhumi), I found I could run Alpine Linux on almost any Kindle, _however_ the releases included had not been updated in years, and caused me to run into several issues when running simple commands, like apk (seg faults, signature issues, and other unexplainable issues I experienced when chrooting into the env with packages over half a decade old). I decided to create new builds myself and make this repo for anyone who might benefit from a newer Alpine release.
 
 # Credits
-using code from: [https://github.com/schuhumi/alpine_kindle](https://github.com/schuhumi/alpine_kindle) & relies on [https://github.com/schuhumi/alpine_kindle_kauh](https://github.com/schuhumi/alpine_kindle_kual)
+using code from: [schuhumi/alpine_kindle](https://github.com/schuhumi/alpine_kindle) & [schuhumi/alpine_kindle_kauh](https://github.com/schuhumi/alpine_kindle_kual)
 
 # Troubleshooting
 - If you are unable to load into Alpine *except* through a shell, ensure your DE is installed (run setup-desktop through Kterm then run Alpine again from KAUL). You can also run startgui.sh from the chroot shell
