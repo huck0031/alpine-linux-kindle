@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # DEPENDENCIES
 # qemu-user-static is required to run arm software using the "qemu-arm-static" command (I suppose you use this script on a X86_64 computer)
 
@@ -33,14 +32,21 @@ git init
 git remote add origin https://github.com/huck0031/alpine_kindle_dotfiles
 git pull origin master
 git reset --hard origin/master
-dconf write /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-theme-colors false
-gsettings set org.mate.interface window-scaling-factor 2
-gsettings set org.gnome.desktop.interface gtk-theme "HighContrast"
-gsettings set org.gnome.desktop.interface icon-theme "HighContrast"
-gsettings set org.gnome.desktop.wm.preferences theme "HighContrast"
-gsettings set org.gnome.desktop.session idle-delay 0
+
+
 dconf load /org/mate/ < ~/.config/org_mate.dconf.dump
 dconf load /org/onboard/ < ~/.config/org_onboard.dconf.dump\"
+
+export XDG_RUNTIME_DIR="/tmp/runtime-$(id -u)"
+mkdir -p "$XDG_RUNTIME_DIR"
+chmod 700 "$XDG_RUNTIME_DIR"
+
+# Use a temporary directory for DBUS
+eval $(dbus-launch --sh-syntax)
+gsettings set org.mate.interface window-scaling-factor 2
+gsettings set org.gnome.desktop.interface gtk-theme 'HighContrast'
+gsettings set org.gnome.desktop.interface icon-theme 'HighContrast'
+gsettings set org.gnome.desktop.session idle-delay 0
 
 echo \"You're now dropped into an interactive shell in Alpine, feel free to explore and type exit to leave.\"
 sh"
