@@ -30,9 +30,15 @@ addgroup sudo
 addgroup alpine sudo
 su alpine -c \"cd ~
 git init
-git remote add origin https://github.com/schuhumi/alpine_kindle_dotfiles
+git remote add origin https://github.com/huck0031/alpine_kindle_dotfiles
 git pull origin master
 git reset --hard origin/master
+dconf write /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-theme-colors false
+gsettings set org.mate.interface window-scaling-factor 2
+gsettings set org.gnome.desktop.interface gtk-theme "HighContrast"
+gsettings set org.gnome.desktop.interface icon-theme "HighContrast"
+gsettings set org.gnome.desktop.wm.preferences theme "HighContrast"
+gsettings set org.gnome.desktop.session idle-delay 0
 dconf load /org/mate/ < ~/.config/org_mate.dconf.dump
 dconf load /org/onboard/ < ~/.config/org_onboard.dconf.dump\"
 
